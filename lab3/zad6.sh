@@ -23,3 +23,12 @@
 # kanonicznymi. Element wskazywany przez dowiązanie nie musi istnieć.
 #
 
+DIR="dane/pierwiastki/"
+
+for VAR in "${DIR}"*; do 
+    if [[ -L "${VAR}" ]]; then
+        if [[ $(readlink "${VAR}") = /* ]]; then
+            readlink -fm "${VAR}"
+        fi
+    fi
+done;

@@ -23,3 +23,5 @@
 # Jako wynik wyświetlić po prostu samą liczbę, nic więcej.
 #
 
+DIR="dane/icao/"
+ls -lsi "${DIR}" | awk {'print $1'} | sort -u | head -n -1 | wc -l

@@ -1,0 +1,10 @@
+dane/atom
+dane/passwords
+dane/elements/Oxygen
+dane/elements/Sodium
+dane/moje dokumenty/cytat
+dane/moje dokumenty/loop
+dane/moje dokumenty/infinite
+dane/pierwiastki/Oxygen
+dane/pierwiastki/Silicon
+dane/pierwiastki/Sodium
