@@ -22,3 +22,10 @@
 # Jako wynik wyświetlić pasujące wpisy z pliku (ścieżki do dowiązań).
 #
 
+FILE="links.txt"
+DIR="dane/"
+while read VAR; do
+    if [[ -L "${VAR}" && -x "${VAR}" ]]; then
+        echo "${VAR}"
+    fi
+done <"${DIR}${FILE}"

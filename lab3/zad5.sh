@@ -25,4 +25,11 @@
 FILE="dane/twardziel"
 DIR="dane/icao/"
 
+INODE_MATCH="$(basename "$(ls -i $FILE | awk '{ print $1 }')")"
 
+for VAR in "${DIR}"*; do
+    INODE_FOUND=$(ls -i "${VAR}" | awk '{ print $1 }')
+    if [[ "${INODE_FOUND}" == "${INODE_MATCH}" ]]; then
+        echo "$(basename "${VAR}")"
+    fi
+done

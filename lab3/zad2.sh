@@ -25,9 +25,9 @@
 DIR='dane/pierwiastki/'
 NUM=0
 
-for VAR in $DIR*; do 
+for VAR in "${DIR}"*; do 
     if [[ -L "${VAR}" ]]; then
-        (( NUM = $NUM + 1))
+        (( NUM = NUM + 1))
     fi
 done;
 

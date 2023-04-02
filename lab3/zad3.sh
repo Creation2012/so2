@@ -30,9 +30,16 @@ DIR="dane/pierwiastki/"
 
 for VAR in "${DIR}"*; do 
     if [[ -L "${VAR}" ]]; then
-        FILE=$(readlink -f "${VAR}")
-        if [[ ! -e "${FILE}" ]]; then 
-            echo $(basename "${VAR}")
+        if [[ ! -f "$(readlink -f "${VAR}")" ]]; then
+            basename "${VAR}"
         fi
     fi
+
+    # Czemu to jest źle?
+    #if [[ -L "${VAR}" ]]; then
+    #    FILE=$(readlink -f "${VAR}")
+    #    if [[ ! -e "${FILE}" ]]; then 
+    #        basename "${VAR}"
+    #    fi
+    #fi
 done;

@@ -28,3 +28,34 @@
 # katalogu powinien znaleźć się dany plik).
 #
 
+L="dane/elements/"
+P="dane/pierwiastki/"
+
+function synchronize()
+{
+    SIDE="${3}"
+    for VAR in "${1}"*; do 
+        if [[ ! -L "${VAR}" ]]; then
+            if [[ ! -f "${2}$(basename "${VAR}")" && ! -L "${2}$(basename "${VAR}")" ]]; then
+                # takie cus (${!1@})
+                echo "${SIDE}:$(basename "${VAR}")"
+            fi
+        fi
+    done;
+
+    return 0
+}
+
+synchronize "${P}" "${L}" "L"
+synchronize "${L}" "${P}" "P"
+
+#for VARL in "${L}"*; do 
+#    if [[ ! -L "${VARL}" ]]; then
+#        if [[ ! -f "$R$(basename "${VARL}")" && ! -L "$R$(basename "${VARL}")" ]]; then
+#            echo "L:$(basename ${VARL})"
+#        fi
+#    fi
+#done;
+#for VARR in "${R}"*; do 
+#    echo "${VARL}" "${VARR}"
+#done;
