@@ -26,7 +26,8 @@
 #
 
 DIR="linux-5.11.13"
-ARG1=$(find "${DIR}" -type f -executable | wc -l)
-ARG2=$(find "${DIR}" -name '*.sh' -executable | wc -l)
 
-echo $ARG1/$ARG2
+X=$(find "${DIR}" -name '*.sh' -executable | wc -l)
+Y=$(find "${DIR}" -type f -executable | wc -l)
+
+echo $X/$Y

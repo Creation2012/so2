@@ -26,3 +26,9 @@
 # liczbę plików).
 #
 
+DIR="linux-5.11.13"
+
+# tutaj pojawil sie potencjalnie blad w pytaniu, poniewaz
+# jest napisane że: TYLKO bezpośredni właściciel MOŻE zmieniać
+# \( -perm 400 -o -perm 600 -o -perm 700 -o -perm 410 -o -perm 450 -o -perm 401 -o -perm 405 -o -perm 411 -o -perm 415 -o -perm 455 \) 
+find "${DIR}" -type f -size -1024c -perm /u+w | wc -l

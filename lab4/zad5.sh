@@ -26,3 +26,6 @@
 # Jako wynik zwrócić tylko i wyłącznie liczbę plików.
 #
 
+DIR="linux-5.11.13"
+
+find "${DIR}" -name "???.c" -type f | wc -l

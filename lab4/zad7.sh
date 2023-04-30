@@ -25,3 +25,6 @@
 # Wyświetlić same nazwy pasujących plików, każdą nazwę w osobnej linii.
 #
 
+DIR="linux-5.11.13"
+
+find "${DIR}" ! -executable -name '[A-Z]*.py' -printf "%f\n"

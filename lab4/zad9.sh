@@ -26,3 +26,6 @@
 # rozdzielone jedną spacją (<rozmiar> <nazwa>\n).
 #
 
+DIR="linux-5.11.13"
+
+find -size +1M -size -10M -type f ! -name "*[0-9]*" -printf "%s %f\n"

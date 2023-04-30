@@ -27,4 +27,11 @@ DIR2="dane/backup/"
 
 #ls $DIR1 && ls $DIR2 | uniq -u
 #grep -f $DIR1 $DIR2
-diff -bu $DIR1 $DIR2 | awk '{ print $4 }'
+#diff -bu $DIR1 $DIR2 | awk '{ print $4 }'
+
+for VAR in "${DIR1}"*; do
+    NAME="$(basename "${VAR}")"
+    if [[ ! -f "${DIR2}"/"${NAME}" ]]; then
+        echo "$(basename "${VAR}")"
+    fi
+done

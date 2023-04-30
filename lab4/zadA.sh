@@ -28,3 +28,6 @@
 # wyświetlić po prostu ścieżki do takich plików.
 #
 
+DIR="linux-5.11.13"
+
+find "${DIR}" \( ! -path "*/mips/*"  -size 1k -o -path "*/bluetooth/*" -size +30k \) \( -name "irq.c" -o -name "core.c" \)

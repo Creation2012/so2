@@ -26,3 +26,6 @@
 # (każda nazwa w nowej linii).
 #
 
+DIR="linux-5.11.13"
+
+find "${DIR}" ! -path "*/testing/*" -name "*.h" -empty -printf "%f\n"
