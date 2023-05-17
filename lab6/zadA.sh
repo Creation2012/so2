@@ -35,3 +35,66 @@
 # i według przyjętej reguły – traktujemy ten wpis jak osobną osobę!
 #
 
+FILE="dodatkowe/doc-tajemnic.txt"
+#awk '{ gsub("^[[:space:]]+",""); 
+#    if( $1 == "Prowadzący:" ) 
+#        { nam=substr($0, index($0,$2)); gsub("\\s", " ", nam); } 
+#    else 
+#        { for (x=0;x<=length;x++) { arr[nam]++ } } 
+#    } 
+#    END  \
+#    { 
+#        for(i in arr) { printf arr[i]"  "i"\n" } 
+#    }' "${FILE}"
+
+#awk '{
+#    if( $0 ~ /^[[:space:]]*Prowadzący*/ ) 
+#        { nam=substr($0, index($0,$2)); }
+#    else 
+#        { for (x=0;x<=length;x++) { arr[nam]++ } } 
+#    } 
+#    END  \
+#    { 
+#        for(i in arr) { printf arr[i]"  "i"\n" } 
+#    }' "${FILE}"
+
+#awk '{ gsub("^[[:space:]]+","");
+#    if( $0 ~ /^[[:space:]]*Prowadzący*/ ) 
+#        { nam=substr($0, index($0,$2)); }
+#    else 
+#        { for (x=0; x<=length; x++) { arr[nam]++; } }
+#    }
+#    END \
+#    {
+#        for(i in arr) { printf arr[i]" "i"\n" }
+#    }
+#   ' "${FILE}"
+
+#awk '{ gsub("^[[:space:]]+","");
+#    if( $0 ~ /^[[:space:]]*Prowadzący*/ ) 
+#        { nam=substr($0, index($0,$2)); gsub("\\s"," ",nam); }
+#    else 
+#        { for (x=0; x<=length; x++) { arr[nam]++; } }
+#    }
+#    END \
+#    {
+#        for(i in arr) { printf arr[i]" "i"\n" }
+#    }
+#   ' "${FILE}"
+
+awk '{
+    if( $0 ~ /^[[:space:]]*Prowadzący*/ ) { 
+        nam=substr($0, index($0,$2)); gsub("\\s"," ",nam); 
+    }
+    else { 
+        if (length(nam) > 0) { 
+            for (x=1;x<=length($0);x++) {
+                arr[nam]++ 
+            } 
+        }
+    } 
+    } 
+    END  \
+    { 
+        for(i in arr) { printf arr[i]"  "i"\n" } 
+    }' "${FILE}"

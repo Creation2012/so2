@@ -28,4 +28,4 @@
 
 DIR="linux-5.11.13"
 
-find "${DIR}" ! -path "*/testing/*" -name "*.h" -empty -printf "%f\n"
+find "${DIR}" ! -path "*/testing/*" -name "*.h" -empty -printf "%f\n" # -size 0

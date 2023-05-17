@@ -29,4 +29,9 @@
 FILE="dodatkowe/nowomowa.txt"
 
 #awk 'BEGIN { RS = " "} { if(substr($0,length,1) == "," || substr($0,length,1) == ".") printf substr($0,0,length-1)"\n"; else if(substr($0,length,1) == "\n") printf substr($0,0,length-2)"\n"; else printf $0"\n" }' "${FILE}"
-awk '/*,*./ { print }' "${FILE}"
+# print daje inny wyniki niz printf przy length?
+#awk '{ RS = " " } { gsub(",",""); gsub("\\.",""); gsub("\n"," "); lens[length]++ } END { for (i in lens) { printf i " " lens[i] "\n" } }' "${FILE}" | sort
+# ZWYKŁE RS = " " NIE DZIAŁA
+# [[:space:]]+ - any sequence of whitespace characters
+awk 'BEGIN { RS="[[:space:]]+" } { gsub("\\.",""); gsub(",",""); arr[length()]++ } END { for (i in arr) { printf i" "arr[i]"\n" } }' dodatkowe/nowomowa.txt | sort
+#awk '{for(i=1;i<=NF;i++) { gsub(/[\.,]/,"",$i); arr[length($i)]++ }} END { for (i in arr) { print i, arr[i] } }' dodatkowe/nowomowa.txt | sort

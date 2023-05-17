@@ -27,4 +27,4 @@
 
 FILE="dodatkowe/ps-aux"
 
-cat "${FILE}" | tail -n +2 |  tr -s ' ' | cut --delimiter=' ' --fields=1 | sort | uniq
+tail -n +2 "${FILE}"  |  tr -s ' ' | cut --delimiter=' ' --fields=1 | sort -u #| uniq

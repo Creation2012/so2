@@ -26,6 +26,5 @@
 FILE="dodatkowe/etc-passwd"
 
 #awk -F: '{ if ($NF != "/usr/bin/nologin" && $NF != "/bin/false") print $1}' "${FILE}"
-grep -v '/bin/nologin\|/bin/false' "${FILE}" | cut --delimiter=':' --fields=1
-
-#cut --delimiter=' ' --fields=1,5 "${FILE}"
+#grep -v '/bin/nologin\|/bin/false' "${FILE}" | cut --delimiter=':' --fields=1
+cut --delimiter=':' --fields=1,7 "${FILE}" | grep -Ev "/bin/nologin|/bin/false" | cut --delimiter=":" --fields=1
