@@ -25,5 +25,4 @@
 
 DIR="coreutils-8.32"
 
-# dodalem najpierw n pozniej l xd
 grep -rnl "^#include <stdio.h>$" "${DIR}" | wc -l 

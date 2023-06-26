@@ -22,3 +22,10 @@
 # pomijając linie puste i takie, których jedyną zawartość stanowią spacje.
 #
 
+FILE="dodatkowe/cpplint.txt"
+
+#sed -E "s/<.*>/<.*>/g" "${FILE}"
+#sed -e 's/<[^>]*>//g' "${FILE}"
+grep --color=auto -Eo "<.*>" "${FILE}"
+#awk '/<.*>/ { print $1 }' "${FILE}"
+#awk '{for(i=1;i<=NF;i++){ if($i=="<*>") {print $i} } }' "${FILE}"

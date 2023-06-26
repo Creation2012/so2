@@ -22,3 +22,4 @@
 # Wynik wyświetlić jako ułamek w postaci X/Y.
 #
 
+echo "Hello, World!"

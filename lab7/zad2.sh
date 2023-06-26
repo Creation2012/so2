@@ -24,3 +24,6 @@
 # Każdy znaleziony unikalny odnośnik wypisać w nowej linii.
 #
 
+FILE="dodatkowe/slajdy.tex"
+
+grep --color=auto -Eo "[^ {]*://[^ }]*" "${FILE}"

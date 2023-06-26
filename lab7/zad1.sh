@@ -23,5 +23,5 @@
 
 FILE="dodatkowe/lipsum.txt"
 
-awk 'BEGIN { RS=" " } /[A-Z].*/ { print }' "${FILE}"
+awk 'BEGIN { RS=" " } /^[A-Z].*/ { print }' "${FILE}" | sort -u
 #grep "[A-Z]*" "${FILE}"

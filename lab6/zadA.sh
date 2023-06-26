@@ -81,10 +81,10 @@ FILE="dodatkowe/doc-tajemnic.txt"
 #        for(i in arr) { printf arr[i]" "i"\n" }
 #    }
 #   ' "${FILE}"
-
+#gsub("\\s","",nam);
 awk '{
     if( $0 ~ /^[[:space:]]*Prowadzący*/ ) { 
-        nam=substr($0, index($0,$2)); gsub("\\s"," ",nam); 
+        nam=substr($0, index($0,$2));  
     }
     else { 
         if (length(nam) > 0) { 

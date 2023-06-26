@@ -29,5 +29,7 @@ FILE="dodatkowe/lipsum.txt"
 
 #awk 'BEGIN { RS=" " } { cur_length += length } ( cur_length+length < 80 ) { print  }' "${FILE}"
 #awk 'BEGIN { RS=" " } { cur_length += length } {if(cur_length+length < 80) { printf $0" " } else { printf " "cur_length" ""\n"$0" "; cur_length = length }}' "${FILE}"
-awk 'BEGIN { cur_length = 0; RS=" " } { cur_length += length+1 } {if(cur_length <= 80) { printf $0" " } else { printf "\n"$0" "; cur_length = length+1 } }' "${FILE}" \
+awk 'BEGIN { cur_length = 0; RS=" " }
+{ cur_length += length+1 } 
+{if(cur_length <= 80) { printf $0" " } else { printf "\n"$0" "; cur_length = length+1 } }' "${FILE}" \
     | head -n -1 | sed 's/ $//'
