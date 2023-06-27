@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#/usr/bin/env bash
 #
 # Systemy operacyjne 2 – laboratorium nr 7
 #

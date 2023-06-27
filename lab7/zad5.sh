@@ -26,4 +26,4 @@
 
 FILE="dodatkowe/service.py"
 #grep -Ex '.*def.*\(' "${FILE}"
-grep -Po '.*def\s+\K[a-z_]+\b' dodatkowe/service.py | sort -u
+grep -Po '.*def\s+\K[a-z_]+\b' "${FILE}" | sort -u
