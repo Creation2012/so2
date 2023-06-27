@@ -23,3 +23,5 @@
 # także wyodrębnić.
 #
 
+FILE="dodatkowe/kant.txt"
+grep -Px '' "${FILE}"

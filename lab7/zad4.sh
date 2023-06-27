@@ -22,4 +22,10 @@
 # Wynik wyświetlić jako ułamek w postaci X/Y.
 #
 
-echo "Hello, World!"
+FILE="dodatkowe/slajdy.tex"
+
+ALL=$(wc -l "${FILE}" | cut -d' ' -f1)
+BLANK=$(grep -Exc "^$|[[:space:]]+" "${FILE}")
+CALC=$((${ALL}-${BLANK}))
+echo "${CALC}"/"${ALL}"
+

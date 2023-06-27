@@ -21,3 +21,5 @@
 # Celsjusza na Fahrenheita: T[°F] = T[°C] * 9/5 + 32.
 #
 
+FILE="dodatkowe/sensors.txt"
+#sed 's/'

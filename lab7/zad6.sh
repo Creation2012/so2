@@ -26,3 +26,6 @@
 # Jako wynik zwrócić same unikalne ścieżki, każdą w nowej linii.
 #
 
+FILE="dodatkowe/slajdy.tex"
+#grep -Po '.*def\s+\K[a-z_]+\b' dodatkowe/service.py | sort -u
+grep -Px '.*\K.*box.*\Kincludegraphics.*' "${FILE}" | grep -o "images.*g"
